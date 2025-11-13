@@ -1,0 +1,1350 @@
+-- Services
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
+----------------------------------------------------------------------
+-- CONFIGURATION AND STYLES
+----------------------------------------------------------------------
+local MAIN_COLOR = Color3.fromRGB(30, 30, 45)       -- Dark Slate Blue Background
+local ACCENT_COLOR = Color3.fromRGB(45, 125, 255)   -- Bright Blue Accent
+local CLOSE_COLOR = Color3.fromRGB(200, 50, 50)     -- Red for close button
+local TAB_INACTIVE_COLOR = Color3.fromRGB(40, 40, 60) -- Darker color for inactive tabs
+local TAB_ACTIVE_COLOR = ACCENT_COLOR                -- Use accent color for active tab
+
+-- --- GLOVE SCRIPT DEFINITIONS ---
+-- Define all functions to prevent connection errors and use the standard structure.
+local function executeFlyScript()
+    local target = Player.Character -- The local player's character
+    if target then
+loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+    end
+end
+
+local function executeAdminScript()
+    local target = Player.Character
+    if target then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Ab-admin-glove-badge/main/Ab%20glovr%20badge%20admin"))()
+    end
+end
+
+local function executeAlchemistScript()
+    local target = Player.Character
+    if target then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Alchemist-/main/Alchemist"))()
+    end
+end
+
+local function executeAnglerScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeAvatarScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBerserkScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBindScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBlasphemyScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBobScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBombScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBoogieScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBountyScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBoxerScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBubbleScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBuddiesScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeBusScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeCarKeysScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeChainScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeChargeScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeClockScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeConfusionScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeCounterScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeCultScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDaveScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDebugScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDetonatorScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDisarmScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDivebombScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDominanceScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDraw4Script()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeDruidScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeEgglerScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeEludeScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeFanScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeFireworkScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeFishScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeFlamarangScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeFrostbiteScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeGlitchScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeGlovelScript()
+    local target = Player.Character
+    if target then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/vinqDevelops/erwwefqweqewqwe/refs/heads/main/lol.txt'))()
+    end
+end
+
+local function executeGoofyScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeHallowJackScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeHammerScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeHarvesterScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeHexaScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeHitmanScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeHunterScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeHybridScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeIceSkateScript()
+    local target = Player.Character
+    if target then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/vinqDevelops/erwwefqweqewqwe/refs/heads/main/lol.txt'))()
+    end
+end
+
+local function executeJesterScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeJerryScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeJetScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeJoustScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeJupiterScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeKineticScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeKnockoffScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeKrakenScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeLagScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeLampScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeLeashScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeLinkScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeLureScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMaterialiseScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMegarockScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMetaverseScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMittenScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMoaiScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMoonScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMortisScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeMouseScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeNecromancerScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeNullScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeObbyScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeOrbitScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePaintScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePanScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePhaseScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePillowScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePlagueScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePlankScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePlateScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePoltergeistScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePotatoScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executePsychoScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeQuakeScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRedactedScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRageScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRattlebonesScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRecallScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeReflectScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeReludeScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRetroScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRhythmScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRNGScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRobScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRojoScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeRunScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSantaScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeScytheScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeShardScript()
+    local target = Player.Character
+    if target then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/vinqDevelops/erwwefqweqewqwe/refs/heads/main/lol.txt'))()
+    end
+end
+
+local function executeTheSchlobScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSillyScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSiphonScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSlasherScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSlappleScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSlenderScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSnowRollerScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSnowballScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSparkyScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSpoonfulScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSpyScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSuctionScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSwashbucklerScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeSwordFighterScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeTankScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeTinkererScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeTrapScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeTycoonScript()
+    local target = Player.Character
+    if target then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/vinqDevelops/erwwefqweqewqwe/refs/heads/main/lol.txt'))()
+    end
+end
+
+local function executeUntitledTagGloveScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeVoodooScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeWarpScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeWaterScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+local function executeWrenchScript()
+    local target = Player.Character
+    if target then
+        -- script will go here later on
+    end
+end
+
+
+-- Dictionary of all buttons, grouped by category
+local ALL_BUTTONS_CONFIG = {
+    -- TAB 1: Main Scripts
+    ["Main"] = {
+        {Name = "FlyButton", Text = "✈️ Fly ", Func = executeFlyScript},
+        -- Add other main scripts here later
+    },
+    
+    -- TAB 2: Gloves A-G (Alchemist, Angler... Glitch, Glovel)
+    ["Gloves A-G"] = {
+        {Name = "AdminButton", Text = "⭐ Admin", Func = executeAdminScript},
+        {Name = "AlchemistButton", Text = "🧪 Alchemist", Func = executeAlchemistScript},
+        {Name = "AnglerButton", Text = "🎣 Angler", Func = executeAnglerScript},
+        {Name = "AvatarButton", Text = "🖼️ Avatar", Func = executeAvatarScript},
+        {Name = "BerserkButton", Text = "🩸 Berserk", Func = executeBerserkScript},
+        {Name = "BindButton", Text = "🔗 Bind", Func = executeBindScript},
+        {Name = "BlasphemyButton", Text = "🔥 Blasphemy", Func = executeBlasphemyScript},
+        {Name = "BobButton", Text = "📦 Bob", Func = executeBobScript},
+        {Name = "BombButton", Text = "💣 Bomb", Func = executeBombScript},
+        {Name = "BoogieButton", Text = "🕺 Boogie", Func = executeBoogieScript},
+        {Name = "BountyButton", Text = "💰 Bounty", Func = executeBountyScript},
+        {Name = "BoxerButton", Text = "🥊 Boxer", Func = executeBoxerScript},
+        {Name = "BubbleButton", Text = "🫧 Bubble", Func = executeBubbleScript},
+        {Name = "BuddiesButton", Text = "🫂 Buddies", Func = executeBuddiesScript},
+        {Name = "BusButton", Text = "🚌 Bus", Func = executeBusScript},
+        {Name = "CarKeysButton", Text = "🔑 Car keys", Func = executeCarKeysScript},
+        {Name = "ChainButton", Text = "⛓️ Chain", Func = executeChainScript},
+        {Name = "ChargeButton", Text = "⚡ Charge", Func = executeChargeScript},
+        {Name = "ClockButton", Text = "⏰ Clock", Func = executeClockScript},
+        {Name = "ConfusionButton", Text = "🌀 Confusion", Func = executeConfusionScript},
+        {Name = "CounterButton", Text = "🛡️ Counter", Func = executeCounterScript}, -- <<--- FIXED
+        {Name = "CultButton", Text = "👁️ Cult", Func = executeCultScript},
+        {Name = "DaveButton", Text = "🧑 Dave", Func = executeDaveScript},
+        {Name = "DebugButton", Text = "🐛 Debug", Func = executeDebugScript},
+        {Name = "DetonatorButton", Text = "💥 Detonator", Func = executeDetonatorScript},
+        {Name = "DisarmButton", Text = "✋ Disarm", Func = executeDisarmScript},
+        {Name = "DivebombButton", Text = "⬇️ Divebomb", Func = executeDivebombScript},
+        {Name = "DominanceButton", Text = "👑 Dominance", Func = executeDominanceScript},
+        {Name = "Draw4Button", Text = "🃏 Draw4", Func = executeDraw4Script},
+        {Name = "DruidButton", Text = "🌿 Druid", Func = executeDruidScript},
+        {Name = "EgglerButton", Text = "🥚 Eggler", Func = executeEgglerScript},
+        {Name = "EludeButton", Text = "💨 Elude", Func = executeEludeScript},
+        {Name = "FanButton", Text = "🌪️ Fan", Func = executeFanScript},
+        {Name = "FireworkButton", Text = "🎆 Firework", Func = executeFireworkScript},
+        {Name = "FishButton", Text = "🐟 Fish", Func = executeFishScript},
+        {Name = "FlamarangButton", Text = "🔥 Flamarang", Func = executeFlamarangScript},
+        {Name = "FrostbiteButton", Text = "🥶 Frostbite", Func = executeFrostbiteScript},
+        {Name = "GlitchButton", Text = "👾 Glitch", Func = executeGlitchScript},
+        {Name = "GlovelButton", Text = "🧤 Glovel", Func = executeGlovelScript},
+        {Name = "GoofyButton", Text = "🤪 Goofy", Func = executeGoofyScript},
+    },
+    
+    -- TAB 3: Gloves H-R (HallowJack... Rojo, Run)
+    ["Gloves H-R"] = {
+        {Name = "HallowJackButton", Text = "🎃 Hallow Jack", Func = executeHallowJackScript},
+        {Name = "HammerButton", Text = "🔨 Hammer", Func = executeHammerScript},
+        {Name = "HarvesterButton", Text = "🌾 Harvester", Func = executeHarvesterScript},
+        {Name = "HexaButton", Text = "🔺 Hexa", Func = executeHexaScript},
+        {Name = "HitmanButton", Text = "🎯 Hitman", Func = executeHitmanScript},
+        {Name = "HunterButton", Text = "🔎 Hunter", Func = executeHunterScript},
+        {Name = "HybridButton", Text = "🧬 Hybrid", Func = executeHybridScript},
+        {Name = "IceSkateButton", Text = "⛸️ Ice skate", Func = executeIceSkateScript},
+        {Name = "JesterButton", Text = "🤡 Jester", Func = executeJesterScript},
+        {Name = "JerryButton", Text = "🐭 Jerry", Func = executeJerryScript},
+        {Name = "JetButton", Text = "🚀 Jet", Func = executeJetScript},
+        {Name = "JoustButton", Text = "🤺 Joust", Func = executeJoustScript},
+        {Name = "JupiterButton", Text = "🪐 Jupiter", Func = executeJupiterScript},
+        {Name = "KineticButton", Text = "💥 Kinetic", Func = executeKineticScript},
+        {Name = "KnockoffButton", Text = "🪓 Knockoff", Func = executeKnockoffScript},
+        {Name = "KrakenButton", Text = "🦑 Kraken", Func = executeKrakenScript},
+        {Name = "LagButton", Text = "📶 Lag", Func = executeLagScript},
+        {Name = "LampButton", Text = "💡 Lamp", Func = executeLampScript},
+        {Name = "LeashButton", Text = "🐕 Leash", Func = executeLeashScript},
+        {Name = "LinkButton", Text = "🔗 Link", Func = executeLinkScript},
+        {Name = "LureButton", Text = "🍬 Lure", Func = executeLureScript},
+        {Name = "MaterialiseButton", Text = "🧱 Materialise", Func = executeMaterialiseScript},
+        {Name = "MegarockButton", Text = "🪨 Megarock", Func = executeMegarockScript},
+        {Name = "MetaverseButton", Text = "🌐 Metaverse", Func = executeMetaverseScript},
+        {Name = "MittenButton", Text = "🧤 Mitten", Func = executeMittenScript},
+        {Name = "MoaiButton", Text = "🗿 Moai", Func = executeMoaiScript},
+        {Name = "MoonButton", Text = "🌕 Moon", Func = executeMoonScript},
+        {Name = "MortisButton", Text = "💀 Mortis", Func = executeMortisScript},
+        {Name = "MouseButton", Text = "🖱️ Mouse", Func = executeMouseScript},
+        {Name = "NecromancerButton", Text = "👻 Necromancer", Func = executeNecromancerScript},
+        {Name = "NullButton", Text = "🚫 Null", Func = executeNullScript},
+        {Name = "ObbyButton", Text = "🧗 Obby", Func = executeObbyScript},
+        {Name = "OrbitButton", Text = "🔄 Orbit", Func = executeOrbitScript},
+        {Name = "PaintButton", Text = "🎨 Paint", Func = executePaintScript},
+        {Name = "PanButton", Text = "🍳 Pan", Func = executePanScript},
+        {Name = "PhaseButton", Text = "👻 Phase", Func = executePhaseScript},
+        {Name = "PillowButton", Text = "☁️ Pillow", Func = executePillowScript},
+        {Name = "PlagueButton", Text = "🦠 Plague", Func = executePlagueScript},
+        {Name = "PlankButton", Text = "🪵 Plank", Func = executePlankScript},
+        {Name = "PlateButton", Text = "🍽️ Plate", Func = executePlateScript},
+        {Name = "PoltergeistButton", Text = "👻 Poltergeist", Func = executePoltergeistScript},
+        {Name = "PotatoButton", Text = "🥔 Potato", Func = executePotatoScript},
+        {Name = "PsychoButton", Text = "🔪 Psycho", Func = executePsychoScript},
+        {Name = "QuakeButton", Text = "🌍 Quake", Func = executeQuakeScript},
+        {Name = "RedactedButton", Text = "❌ [Redacted]", Func = executeRedactedScript},
+        {Name = "RageButton", Text = "😡 Rage", Func = executeRageScript},
+        {Name = "RattlebonesButton", Text = "🦴 Rattlebones", Func = executeRattlebonesScript},
+        {Name = "RecallButton", Text = "🔙 Recall", Func = executeRecallScript},
+        {Name = "ReflectButton", Text = "🔄 Reflect", Func = executeReflectScript},
+        {Name = "ReludeButton", Text = "🚪 Relude", Func = executeReludeScript},
+        {Name = "RetroButton", Text = "🕹️ Retro", Func = executeRetroScript},
+        {Name = "RhythmButton", Text = "🎶 Rhythm", Func = executeRhythmScript},
+        {Name = "RNGButton", Text = "🎲 RNG", Func = executeRNGScript},
+        {Name = "RobButton", Text = "💰 Rob", Func = executeRobScript},
+        {Name = "RojoButton", Text = "🔴 Rojo", Func = executeRojoScript},
+        {Name = "RunButton", Text = "🏃 Run", Func = executeRunScript},
+    },
+
+    -- TAB 4: Gloves S-Z (Santa... Wrench)
+    ["Gloves S-Z"] = {
+        {Name = "SantaButton", Text = "🎅 Santa", Func = executeSantaScript},
+        {Name = "ScytheButton", Text = "🔪 Scythe", Func = executeScytheScript},
+        {Name = "ShardButton", Text = "💎 Shard", Func = executeShardScript},
+        {Name = "TheSchlobButton", Text = "🦠 The schlob", Func = executeTheSchlobScript},
+        {Name = "SillyButton", Text = "🤪 Silly", Func = executeSillyScript},
+        {Name = "SiphonButton", Text = "🧛 Siphon", Func = executeSiphonScript},
+        {Name = "SlasherButton", Text = "🔪 Slasher", Func = executeSlasherScript},
+        {Name = "SlappleButton", Text = "🍎 Slapple", Func = executeSlappleScript},
+        {Name = "SlenderButton", Text = "🕴️ Slender", Func = executeSlenderScript},
+        {Name = "SnowRollerButton", Text = "滚 Snow roller", Func = executeSnowRollerScript},
+        {Name = "SnowballButton", Text = " снежок Snowball", Func = executeSnowballScript},
+        {Name = "SparkyButton", Text = "✨ Sparky", Func = executeSparkyScript},
+        {Name = "SpoonfulButton", Text = "🥄 Spoonful", Func = executeSpoonfulScript},
+        {Name = "SpyButton", Text = "🕵️ Spy", Func = executeSpyScript},
+        {Name = "SuctionButton", Text = "🔌 Suction", Func = executeSuctionScript},
+        {Name = "SwashbucklerButton", Text = "🏴‍☠️ Swashbuckler", Func = executeSwashbucklerScript},
+        {Name = "SwordFighterButton", Text = "⚔️ Sword fighter", Func = executeSwordFighterScript},
+        {Name = "TankButton", Text = "🛡️ Tank", Func = executeTankScript},
+        {Name = "TinkererButton", Text = "⚙️ Tinkerer", Func = executeTinkererScript},
+        {Name = "TrapButton", Text = "🕸️ Trap", Func = executeTrapScript},
+        {Name = "TycoonButton", Text = "🏢 Tycoon", Func = executeTycoonScript},
+        {Name = "UntitledTagGloveButton", Text = "🏷️ Untitled tag glove", Func = executeUntitledTagGloveScript},
+        {Name = "VoodooButton", Text = "💉 Voodoo", Func = executeVoodooScript},
+        {Name = "WarpButton", Text = "🌀 Warp", Func = executeWarpScript},
+        {Name = "WaterButton", Text = "💧 Water", Func = executeWaterScript},
+        {Name = "WrenchButton", Text = "🔧 Wrench", Func = executeWrenchScript},
+    },
+}
+
+-- Table to hold references to the tab buttons and content frames
+local TAB_BUTTONS = {}
+local CONTENT_FRAMES = {}
+local ACTIVE_TAB = "Main" -- Start with the Main tab open
+
+----------------------------------------------------------------------
+-- 1. Setup the ScreenGui
+----------------------------------------------------------------------
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "AdminPanelGui"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = PlayerGui
+
+----------------------------------------------------------------------
+-- 2. Toggle Button (Small Re-open Box)
+----------------------------------------------------------------------
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Name = "ToggleReopenButton"
+ToggleButton.Size = UDim2.new(0, 48, 0, 48)
+ToggleButton.Position = UDim2.new(0.01, 0, 0.01, 0) -- Top-left corner
+ToggleButton.Text = "👑"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.BackgroundColor3 = ACCENT_COLOR
+ToggleButton.BorderSizePixel = 0
+ToggleButton.Font = Enum.Font.SourceSansBold
+ToggleButton.TextSize = 24
+ToggleButton.Parent = ScreenGui
+
+-- Rounded Corners for Toggle Button
+local UICornerToggle = Instance.new("UICorner")
+UICornerToggle.CornerRadius = UDim.new(0, 10)
+UICornerToggle.Parent = ToggleButton
+
+----------------------------------------------------------------------
+-- 3. Main Window Frame (The Panel)
+----------------------------------------------------------------------
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "AdminPanelWindow"
+MainFrame.Size = UDim2.new(0.6, 0, 0.6, 0) -- Slightly wider to accommodate tabs
+MainFrame.Position = UDim2.new(0.2, 0, 0.2, 0)
+MainFrame.BackgroundColor3 = MAIN_COLOR
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.Visible = false
+MainFrame.Parent = ScreenGui
+
+-- Rounded Corners for Main Frame
+local UICornerMain = Instance.new("UICorner")
+UICornerMain.CornerRadius = UDim.new(0, 15)
+UICornerMain.Parent = MainFrame
+
+-- Subtle border stroke for aesthetics
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Color = ACCENT_COLOR
+UIStroke.Thickness = 2
+UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UIStroke.Parent = MainFrame
+
+----------------------------------------------------------------------
+-- 4. Header (Title and Close Button)
+----------------------------------------------------------------------
+local Header = Instance.new("Frame")
+Header.Name = "Header"
+Header.Size = UDim2.new(1, 0, 0.1, 0)
+Header.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
+Header.Parent = MainFrame
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Size = UDim2.new(0.85, 0, 1, 0)
+Title.Position = UDim2.new(0.05, 0, 0, 0)
+Title.Text = "Fero’s Main Panel - credits to Appel"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.Font = Enum.Font.SourceSansBold
+Title.TextSize = 20
+Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.Parent = Header
+
+-- Close Button (The "X" button)
+local CloseButton = Instance.new("TextButton")
+CloseButton.Name = "CloseButton"
+CloseButton.Size = UDim2.new(0.1, 0, 0.8, 0)
+CloseButton.Position = UDim2.new(0.88, 0, 0.1, 0)
+CloseButton.Text = "✕"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BackgroundColor3 = CLOSE_COLOR
+CloseButton.Font = Enum.Font.SourceSansBold
+CloseButton.TextSize = 20
+CloseButton.Parent = Header
+
+-- Rounded Corners for Close Button
+local UICornerClose = Instance.new("UICorner")
+UICornerClose.CornerRadius = UDim.new(0, 5)
+UICornerClose.Parent = CloseButton
+
+----------------------------------------------------------------------
+-- 5. Tab Layout: Left Sidebar
+----------------------------------------------------------------------
+
+local Sidebar = Instance.new("Frame")
+Sidebar.Name = "Sidebar"
+Sidebar.Size = UDim2.new(0.25, 0, 0.9, 0) -- 25% width
+Sidebar.Position = UDim2.new(0, 0, 0.1, 0) -- Below the header
+Sidebar.BackgroundColor3 = Color3.fromRGB(35, 35, 50) -- Slightly different background
+Sidebar.Parent = MainFrame
+
+local TabListLayout = Instance.new("UIListLayout")
+TabListLayout.Padding = UDim.new(0, 5)
+TabListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+TabListLayout.FillDirection = Enum.FillDirection.Vertical
+TabListLayout.Parent = Sidebar
+
+local SidebarPadding = Instance.new("UIPadding")
+SidebarPadding.PaddingTop = UDim.new(0, 10)
+SidebarPadding.PaddingBottom = UDim.new(0, 10)
+SidebarPadding.PaddingLeft = UDim.new(0, 5)
+SidebarPadding.PaddingRight = UDim.new(0, 5)
+SidebarPadding.Parent = Sidebar
+
+----------------------------------------------------------------------
+-- 6. Content Area: Right Section
+----------------------------------------------------------------------
+local ContentArea = Instance.new("Frame")
+ContentArea.Name = "ContentArea"
+ContentArea.Size = UDim2.new(0.75, 0, 0.9, 0) -- 75% width
+ContentArea.Position = UDim2.new(0.25, 0, 0.1, 0) -- Next to the sidebar
+ContentArea.BackgroundTransparency = 1
+ContentArea.Parent = MainFrame
+
+
+----------------------------------------------------------------------
+-- HELPER FUNCTIONS
+----------------------------------------------------------------------
+
+-- Function to create a standard button
+local function createButton(name, text, onClickFunction, parentFrame)
+    local Button = Instance.new("TextButton")
+    Button.Name = name
+    Button.Size = UDim2.new(1, 0, 0, 40) -- Full width, 40px height
+    Button.Text = text -- Now guaranteed to be a string
+    Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Button.BackgroundColor3 = Color3.fromRGB(50, 50, 75)
+    Button.BorderSizePixel = 0
+    Button.Font = Enum.Font.SourceSansSemibold
+    Button.TextSize = 16
+    Button.Parent = parentFrame
+    
+    local Corner = Instance.new("UICorner")
+    Corner.CornerRadius = UDim.new(0, 8)
+    Corner.Parent = Button
+    
+    -- Connection
+    Button.MouseButton1Click:Connect(onClickFunction)
+    
+    -- Hover effect
+    Button.MouseEnter:Connect(function()
+        Button.BackgroundColor3 = ACCENT_COLOR
+    end)
+    Button.MouseLeave:Connect(function()
+        Button.BackgroundColor3 = Color3.fromRGB(50, 50, 75)
+    end)
+    
+    return Button
+end
+
+-- Function to force the ScrollingFrame to update its canvas size based on content
+local function updateCanvasSize(scrollingFrame, containerFrame, layout)
+    -- Wait until the layout is calculated
+    layout:GetPropertyChangedSignal("AbsoluteContentSize"):Wait()
+    
+    -- 30 is the vertical padding (15 top + 15 bottom)
+    local contentHeight = layout.AbsoluteContentSize.Y + 30 
+    
+    -- Resize the ButtonContainer frame vertically
+    containerFrame.Size = UDim2.new(1, 0, 0, contentHeight)
+
+    -- Set CanvasSize to match the container's final size
+    scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, contentHeight)
+    scrollingFrame.CanvasPosition = Vector2.new(0, 0) -- Reset scroll to top
+end
+
+-- Function to handle tab switching
+local function switchTab(tabName)
+    if ACTIVE_TAB == tabName and MainFrame.Visible then return end
+
+    -- Deactivate all content frames
+    for _, frame in pairs(CONTENT_FRAMES) do
+        frame.Visible = false
+    end
+
+    -- Deactivate all tab buttons (visual change)
+    for name, button in pairs(TAB_BUTTONS) do
+        button.BackgroundColor3 = TAB_INACTIVE_COLOR
+        button.TextStrokeTransparency = 1
+    end
+
+    -- Activate the selected content frame and button
+    CONTENT_FRAMES[tabName].Visible = true
+    TAB_BUTTONS[tabName].BackgroundColor3 = TAB_ACTIVE_COLOR
+    TAB_BUTTONS[tabName].TextStrokeTransparency = 0.8
+    ACTIVE_TAB = tabName
+    
+    -- Force a CanvasSize update and reset scroll for the newly active tab
+    local tabContainer = CONTENT_FRAMES[tabName]:FindFirstChild("ButtonContainer")
+    local tabScrollingFrame = CONTENT_FRAMES[tabName]
+    local tabLayout = tabContainer:FindFirstChildOfClass("UIListLayout")
+    
+    if tabLayout and tabContainer and tabScrollingFrame then
+        task.spawn(updateCanvasSize, tabScrollingFrame, tabContainer, tabLayout)
+    end
+end
+
+-- Function to create a tab button
+local function createTabButton(tabName, displayText)
+    local TabButton = Instance.new("TextButton")
+    TabButton.Name = tabName .. "Tab"
+    TabButton.Size = UDim2.new(1, 0, 0, 45)
+    TabButton.Text = displayText
+    TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TabButton.BackgroundColor3 = TAB_INACTIVE_COLOR
+    TabButton.BorderSizePixel = 0
+    TabButton.Font = Enum.Font.SourceSansSemibold
+    TabButton.TextSize = 18
+    TabButton.Parent = Sidebar
+    
+    local UICornerTab = Instance.new("UICorner")
+    UICornerTab.CornerRadius = UDim.new(0, 8)
+    UICornerTab.Parent = TabButton
+
+    TabButton.MouseButton1Click:Connect(function()
+        switchTab(tabName)
+    end)
+    
+    TAB_BUTTONS[tabName] = TabButton
+end
+
+-- Function to create the scrolling content for a tab
+local function createTabContent(tabName, buttonConfig)
+    -- Scrolling Frame
+    local ScrollingContent = Instance.new("ScrollingFrame")
+    ScrollingContent.Name = tabName .. "ScrollingContent"
+    ScrollingContent.Size = UDim2.new(1, 0, 1, 0)
+    ScrollingContent.BackgroundTransparency = 1
+    ScrollingContent.Parent = ContentArea
+    ScrollingContent.ScrollingDirection = Enum.ScrollingDirection.Y
+    ScrollingContent.CanvasSize = UDim2.new(0, 0, 0, 0)
+    ScrollingContent.Active = true
+    ScrollingContent.ScrollBarThickness = 17
+    ScrollingContent.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+    ScrollingContent.Visible = false -- Start invisible
+
+    -- Button Container
+    local ButtonContainer = Instance.new("Frame")
+    ButtonContainer.Name = "ButtonContainer"
+    ButtonContainer.Size = UDim2.new(1, 0, 0, 0) -- Auto-resized
+    ButtonContainer.BackgroundTransparency = 1
+    ButtonContainer.Parent = ScrollingContent
+
+    -- Layout
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.Padding = UDim.new(0, 10)
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+    UIListLayout.FillDirection = Enum.FillDirection.Vertical
+    UIListLayout.Parent = ButtonContainer
+
+    -- Padding
+    local UIPadding = Instance.new("UIPadding")
+    UIPadding.PaddingTop = UDim.new(0, 15)
+    UIPadding.PaddingBottom = UDim.new(0, 15)
+    UIPadding.PaddingLeft = UDim.new(0, 15)
+    UIPadding.PaddingRight = UDim.new(0, 15)
+    UIPadding.Parent = ButtonContainer
+
+    -- Create buttons inside the container
+    for _, config in ipairs(buttonConfig) do
+        -- config.Text and config.Func are now guaranteed due to the fix
+        createButton(config.Name, config.Text, config.Func, ButtonContainer)
+    end
+
+    -- Store reference
+    CONTENT_FRAMES[tabName] = ScrollingContent
+    
+    -- Initial Canvas Size calculation (must run in a separate thread)
+    -- Note: This initial run might not be perfect since the frame is invisible,
+    -- but it ensures layout properties exist for the main switchTab call.
+    task.spawn(updateCanvasSize, ScrollingContent, ButtonContainer, UIListLayout)
+end
+
+
+----------------------------------------------------------------------
+-- 7. GUI INITIALIZATION (Create Tabs and Content)
+----------------------------------------------------------------------
+
+-- 1. Create Tab Buttons
+createTabButton("Main", "Main Scripts")
+createTabButton("Gloves A-G", "Gloves (A-G)")
+createTabButton("Gloves H-R", "Gloves (H-R)")
+createTabButton("Gloves S-Z", "Gloves (S-Z)")
+
+-- 2. Create Tab Content
+createTabContent("Main", ALL_BUTTONS_CONFIG["Main"])
+createTabContent("Gloves A-G", ALL_BUTTONS_CONFIG["Gloves A-G"])
+createTabContent("Gloves H-R", ALL_BUTTONS_CONFIG["Gloves H-R"])
+createTabContent("Gloves S-Z", ALL_BUTTONS_CONFIG["Gloves S-Z"])
+
+-- 3. Set the initial active tab (will ensure visibility and scroll reset)
+switchTab(ACTIVE_TAB)
+
+
+----------------------------------------------------------------------
+-- 8. Event Connections
+----------------------------------------------------------------------
+
+-- Open Panel
+ToggleButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = true
+    ToggleButton.Visible = false
+    -- When opening, ensure the last active tab is displayed and scroll is set to top
+    switchTab(ACTIVE_TAB)
+end)
+
+-- Close Panel
+CloseButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = false
+    ToggleButton.Visible = true
+end)
