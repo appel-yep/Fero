@@ -1,19 +1,27 @@
--- Services
+-- Script for me to edit
+----------------------------------------------------------------------
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local TWEEN_INFO = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+local IS_SEARCHING = false -- Global state flag for search mode
 
 ----------------------------------------------------------------------
 -- CONFIGURATION AND STYLES
 ----------------------------------------------------------------------
-local MAIN_COLOR = Color3.fromRGB(30, 30, 45)       -- Dark Slate Blue Background
-local ACCENT_COLOR = Color3.fromRGB(45, 125, 255)   -- Bright Blue Accent
-local CLOSE_COLOR = Color3.fromRGB(200, 50, 50)     -- Red for close button
-local TAB_INACTIVE_COLOR = Color3.fromRGB(40, 40, 60) -- Darker color for inactive tabs
-local TAB_ACTIVE_COLOR = ACCENT_COLOR                -- Use accent color for active tab
+local MAIN_COLOR = Color3.fromRGB(30, 30, 45)  
+local ACCENT_COLOR = Color3.fromRGB(45, 125, 255)
+local CLOSE_COLOR = Color3.fromRGB(200, 50, 50)
+local BUTTON_COLOR = Color3.fromRGB(50, 50, 75)
+local SEARCH_COLOR = Color3.fromRGB(55, 55, 80)
+local HOVER_COLOR = Color3.fromRGB(70, 70, 100)
 
--- --- GLOVE SCRIPT DEFINITIONS ---
--- Define all functions to prevent connection errors and use the standard structure.
+----------------------------------------------------------------------
+-- GLOVE SCRIPTS
+----------------------------------------------------------------------
 local function executeFlyScript()
     local target = Player.Character -- The local player's character
     if target then
@@ -890,171 +898,151 @@ local function executeWrenchScript()
 end
 
 
--- Dictionary of all buttons, grouped by category
+----------------------------------------------------------------------
+-- Dictionary of ALL buttons
+----------------------------------------------------------------------
 local ALL_BUTTONS_CONFIG = {
-    -- TAB 1: Main Scripts
-    ["Main"] = {
-        {Name = "FlyButton", Text = "✈️ Fly ", Func = executeFlyScript},
-        {Name = "LoadstringButton", Text = "Loadstring maker ", Func = executeLoadstringScript},
-        -- Add other main scripts here later
-    },
-    
-    -- TAB 2: Gloves A-G (Alchemist, Angler... Glitch, Glovel)
-    ["Gloves A-G"] = {
-        {Name = "AdminButton", Text = "⭐ Admin", Func = executeAdminScript},
-        {Name = "AlchemistButton", Text = "🧪 Alchemist", Func = executeAlchemistScript},
-        {Name = "AnglerButton", Text = "🎣 Angler", Func = executeAnglerScript},
-        {Name = "AvatarButton", Text = "🖼️ Avatar", Func = executeAvatarScript},
-        {Name = "BerserkButton", Text = "🩸 Berserk", Func = executeBerserkScript},
-        {Name = "BindButton", Text = "🔗 Bind", Func = executeBindScript},
-        {Name = "BlasphemyButton", Text = "🔥 Blasphemy", Func = executeBlasphemyScript},
-        {Name = "BobButton", Text = "📦 Bob", Func = executeBobScript},
-        {Name = "BombButton", Text = "💣 Bomb", Func = executeBombScript},
-        {Name = "BoogieButton", Text = "🕺 Boogie", Func = executeBoogieScript},
-        {Name = "BountyButton", Text = "💰 Bounty", Func = executeBountyScript},
-        {Name = "BoxerButton", Text = "🥊 Boxer", Func = executeBoxerScript},
-        {Name = "BubbleButton", Text = "🫧 Bubble", Func = executeBubbleScript},
-        {Name = "BuddiesButton", Text = "🫂 Buddies", Func = executeBuddiesScript},
-        {Name = "BusButton", Text = "🚌 Bus", Func = executeBusScript},
-        {Name = "CarKeysButton", Text = "🔑 Car keys", Func = executeCarKeysScript},
-        {Name = "ChainButton", Text = "⛓️ Chain", Func = executeChainScript},
-        {Name = "ChargeButton", Text = "⚡ Charge", Func = executeChargeScript},
-        {Name = "ClockButton", Text = "⏰ Clock", Func = executeClockScript},
-        {Name = "ConfusionButton", Text = "🌀 Confusion", Func = executeConfusionScript},
-        {Name = "CounterButton", Text = "🛡️ Counter", Func = executeCounterScript}, -- <<--- FIXED
-        {Name = "CultButton", Text = "👁️ Cult", Func = executeCultScript},
-        {Name = "DaveButton", Text = "🧑 Dave", Func = executeDaveScript},
-        {Name = "DebugButton", Text = "🐛 Debug", Func = executeDebugScript},
-        {Name = "DetonatorButton", Text = "💥 Detonator", Func = executeDetonatorScript},
-        {Name = "DisarmButton", Text = "✋ Disarm", Func = executeDisarmScript},
-        {Name = "DivebombButton", Text = "⬇️ Divebomb", Func = executeDivebombScript},
-        {Name = "DominanceButton", Text = "👑 Dominance", Func = executeDominanceScript},
-        {Name = "Draw4Button", Text = "🃏 Draw4", Func = executeDraw4Script},
-        {Name = "DruidButton", Text = "🌿 Druid", Func = executeDruidScript},
-        {Name = "EgglerButton", Text = "🥚 Eggler", Func = executeEgglerScript},
-        {Name = "EludeButton", Text = "💨 Elude", Func = executeEludeScript},
-        {Name = "FanButton", Text = "🌪️ Fan", Func = executeFanScript},
-        {Name = "FireworkButton", Text = "🎆 Firework", Func = executeFireworkScript},
-        {Name = "FishButton", Text = "🐟 Fish", Func = executeFishScript},
-        {Name = "FlamarangButton", Text = "🔥 Flamarang", Func = executeFlamarangScript},
-        {Name = "FrostbiteButton", Text = "🥶 Frostbite", Func = executeFrostbiteScript},
-        {Name = "GlitchButton", Text = "👾 Glitch", Func = executeGlitchScript},
-        {Name = "GlovelButton", Text = "🧤 Glovel", Func = executeGlovelScript},
-        {Name = "GoofyButton", Text = "🤪 Goofy", Func = executeGoofyScript},
-    },
-    
-    -- TAB 3: Gloves H-R (HallowJack... Rojo, Run)
-    ["Gloves H-R"] = {
-        {Name = "HallowJackButton", Text = "🎃 Hallow Jack", Func = executeHallowJackScript},
-        {Name = "HammerButton", Text = "🔨 Hammer", Func = executeHammerScript},
-        {Name = "HarvesterButton", Text = "🌾 Harvester", Func = executeHarvesterScript},
-        {Name = "HexaButton", Text = "🔺 Hexa", Func = executeHexaScript},
-        {Name = "HitmanButton", Text = "🎯 Hitman", Func = executeHitmanScript},
-        {Name = "HunterButton", Text = "🔎 Hunter", Func = executeHunterScript},
-        {Name = "HybridButton", Text = "🧬 Hybrid", Func = executeHybridScript},
-        {Name = "IceSkateButton", Text = "⛸️ Ice skate", Func = executeIceSkateScript},
-        {Name = "JesterButton", Text = "🤡 Jester", Func = executeJesterScript},
-        {Name = "JerryButton", Text = "🐭 Jerry", Func = executeJerryScript},
-        {Name = "JetButton", Text = "🚀 Jet", Func = executeJetScript},
-        {Name = "JoustButton", Text = "🤺 Joust", Func = executeJoustScript},
-        {Name = "JupiterButton", Text = "🪐 Jupiter", Func = executeJupiterScript},
-        {Name = "KineticButton", Text = "💥 Kinetic", Func = executeKineticScript},
-        {Name = "KnockoffButton", Text = "🪓 Knockoff", Func = executeKnockoffScript},
-        {Name = "KrakenButton", Text = "🦑 Kraken", Func = executeKrakenScript},
-        {Name = "LagButton", Text = "📶 Lag", Func = executeLagScript},
-        {Name = "LampButton", Text = "💡 Lamp", Func = executeLampScript},
-        {Name = "LeashButton", Text = "🐕 Leash", Func = executeLeashScript},
-        {Name = "LinkButton", Text = "🔗 Link", Func = executeLinkScript},
-        {Name = "LureButton", Text = "🍬 Lure", Func = executeLureScript},
-        {Name = "MaterialiseButton", Text = "🧱 Materialise", Func = executeMaterialiseScript},
-        {Name = "MegarockButton", Text = "🪨 Megarock", Func = executeMegarockScript},
-        {Name = "MetaverseButton", Text = "🌐 Metaverse", Func = executeMetaverseScript},
-        {Name = "MittenButton", Text = "🧤 Mitten", Func = executeMittenScript},
-        {Name = "MoaiButton", Text = "🗿 Moai", Func = executeMoaiScript},
-        {Name = "MoonButton", Text = "🌕 Moon", Func = executeMoonScript},
-        {Name = "MortisButton", Text = "💀 Mortis", Func = executeMortisScript},
-        {Name = "MouseButton", Text = "🖱️ Mouse", Func = executeMouseScript},
-        {Name = "NecromancerButton", Text = "👻 Necromancer", Func = executeNecromancerScript},
-        {Name = "NullButton", Text = "🚫 Null", Func = executeNullScript},
-        {Name = "ObbyButton", Text = "🧗 Obby", Func = executeObbyScript},
-        {Name = "OrbitButton", Text = "🔄 Orbit", Func = executeOrbitScript},
-        {Name = "PaintButton", Text = "🎨 Paint", Func = executePaintScript},
-        {Name = "PanButton", Text = "🍳 Pan", Func = executePanScript},
-        {Name = "PhaseButton", Text = "👻 Phase", Func = executePhaseScript},
-        {Name = "PillowButton", Text = "☁️ Pillow", Func = executePillowScript},
-        {Name = "PlagueButton", Text = "🦠 Plague", Func = executePlagueScript},
-        {Name = "PlankButton", Text = "🪵 Plank", Func = executePlankScript},
-        {Name = "PlateButton", Text = "🍽️ Plate", Func = executePlateScript},
-        {Name = "PoltergeistButton", Text = "👻 Poltergeist", Func = executePoltergeistScript},
-        {Name = "PotatoButton", Text = "🥔 Potato", Func = executePotatoScript},
-        {Name = "PsychoButton", Text = "🔪 Psycho", Func = executePsychoScript},
-        {Name = "QuakeButton", Text = "🌍 Quake", Func = executeQuakeScript},
-        {Name = "RedactedButton", Text = "❌ [Redacted]", Func = executeRedactedScript},
-        {Name = "RageButton", Text = "😡 Rage", Func = executeRageScript},
-        {Name = "RattlebonesButton", Text = "🦴 Rattlebones", Func = executeRattlebonesScript},
-        {Name = "RecallButton", Text = "🔙 Recall", Func = executeRecallScript},
-        {Name = "ReflectButton", Text = "🔄 Reflect", Func = executeReflectScript},
-        {Name = "ReludeButton", Text = "🚪 Relude", Func = executeReludeScript},
-        {Name = "RetroButton", Text = "🕹️ Retro", Func = executeRetroScript},
-        {Name = "RhythmButton", Text = "🎶 Rhythm", Func = executeRhythmScript},
-        {Name = "RiftshotButton", Text = "🏹 Riftshot", Func = executeRiftshotScript},
-        {Name = "RNGButton", Text = "🎲 RNG", Func = executeRNGScript},
-        {Name = "RobButton", Text = "💰 Rob", Func = executeRobScript},
-        {Name = "RojoButton", Text = "🔴 Rojo", Func = executeRojoScript},
-        {Name = "RunButton", Text = "🏃 Run", Func = executeRunScript},
-    },
-
-    -- TAB 4: Gloves S-Z (Santa... Wrench)
-    ["Gloves S-Z"] = {
-        {Name = "SantaButton", Text = "🎅 Santa", Func = executeSantaScript},
-        {Name = "ScytheButton", Text = "🔪 Scythe", Func = executeScytheScript},
-        {Name = "ShardButton", Text = "💎 Shard", Func = executeShardScript},
-        {Name = "TheSchlobButton", Text = "🦠 The schlob", Func = executeTheSchlobScript},
-        {Name = "SillyButton", Text = "🤪 Silly", Func = executeSillyScript},
-        {Name = "SiphonButton", Text = "🧛 Siphon", Func = executeSiphonScript},
-        {Name = "SlasherButton", Text = "🔪 Slasher", Func = executeSlasherScript},
-        {Name = "SlappleButton", Text = "🍎 Slapple", Func = executeSlappleScript},
-        {Name = "SlenderButton", Text = "🕴️ Slender", Func = executeSlenderScript},
-        {Name = "SnowRollerButton", Text = "滚 Snow roller", Func = executeSnowRollerScript},
-        {Name = "SnowballButton", Text = " снежок Snowball", Func = executeSnowballScript},
-        {Name = "SparkyButton", Text = "✨ Sparky", Func = executeSparkyScript},
-        {Name = "SpoonfulButton", Text = "🥄 Spoonful", Func = executeSpoonfulScript},
-        {Name = "SpyButton", Text = "🕵️ Spy", Func = executeSpyScript},
-        {Name = "SuctionButton", Text = "🔌 Suction", Func = executeSuctionScript},
-        {Name = "SwashbucklerButton", Text = "🏴‍☠️ Swashbuckler", Func = executeSwashbucklerScript},
-        {Name = "SwordFighterButton", Text = "⚔️ Sword fighter", Func = executeSwordFighterScript},
-        {Name = "TankButton", Text = "🛡️ Tank", Func = executeTankScript},
-        {Name = "TinkererButton", Text = "⚙️ Tinkerer", Func = executeTinkererScript},
-        {Name = "TrapButton", Text = "🕸️ Trap", Func = executeTrapScript},
-        {Name = "TycoonButton", Text = "🏢 Tycoon", Func = executeTycoonScript},
-        {Name = "UntitledTagGloveButton", Text = "🏷️ Untitled tag glove", Func = executeUntitledTagGloveScript},
-        {Name = "VoodooButton", Text = "💉 Voodoo", Func = executeVoodooScript},
-        {Name = "WarpButton", Text = "🌀 Warp", Func = executeWarpScript},
-        {Name = "WaterButton", Text = "💧 Water", Func = executeWaterScript},
-        {Name = "WrenchButton", Text = "🔧 Wrench", Func = executeWrenchScript},
-    },
+    {Name = "FlyButton", Text = "✈️ Fly ", Func = executeFlyScript},
+    {Name = "LoadstringButton", Text = "🧶Loadstring ", Func = executeLoadstringScript},
+    {Name = "AdminButton", Text = "⭐ Admin", Func = executeAdminScript},
+    {Name = "AlchemistButton", Text = "🧪 Alchemist", Func = executeAlchemistScript},
+    {Name = "AnglerButton", Text = "🎣 Angler", Func = executeAnglerScript},
+    {Name = "AvatarButton", Text = "🖼️ Avatar", Func = executeAvatarScript},
+    {Name = "BerserkButton", Text = "🩸 Berserk", Func = executeBerserkScript},
+    {Name = "BindButton", Text = "🔗 Bind", Func = executeBindScript},
+    {Name = "BlasphemyButton", Text = "🔥 Blasphemy", Func = executeBlasphemyScript},
+    {Name = "BobButton", Text = "📦 Bob", Func = executeBobScript},
+    {Name = "BombButton", Text = "💣 Bomb", Func = executeBombScript},
+    {Name = "BoogieButton", Text = "🕺 Boogie", Func = executeBoogieScript},
+    {Name = "BountyButton", Text = "💰 Bounty", Func = executeBountyScript},
+    {Name = "BoxerButton", Text = "🥊 Boxer", Func = executeBoxerScript},
+    {Name = "BubbleButton", Text = "🫧 Bubble", Func = executeBubbleScript},
+    {Name = "BuddiesButton", Text = "🫂 Buddies", Func = executeBuddiesScript},
+    {Name = "BusButton", Text = "🚌 Bus", Func = executeBusScript},
+    {Name = "CarKeysButton", Text = "🔑 Car keys", Func = executeCarKeysScript},
+    {Name = "ChainButton", Text = "⛓️ Chain", Func = executeChainScript},
+    {Name = "ChargeButton", Text = "⚡ Charge", Func = executeChargeScript},
+    {Name = "ClockButton", Text = "⏰ Clock", Func = executeClockScript},
+    {Name = "ConfusionButton", Text = "🌀 Confusion", Func = executeConfusionScript},
+    {Name = "CounterButton", Text = "🛡️ Counter", Func = executeCounterScript}, 
+    {Name = "CultButton", Text = "👁️ Cult", Func = executeCultScript},
+    {Name = "DaveButton", Text = "🧑 Dave", Func = executeDaveScript},
+    {Name = "DebugButton", Text = "🐛 Debug", Func = executeDebugScript},
+    {Name = "DetonatorButton", Text = "💥 Detonator", Func = executeDetonatorScript},
+    {Name = "DisarmButton", Text = "✋ Disarm", Func = executeDisarmScript},
+    {Name = "DivebombButton", Text = "⬇️ Divebomb", Func = executeDivebombScript},
+    {Name = "DominanceButton", Text = "👑 Dominance", Func = executeDominanceScript},
+    {Name = "Draw4Button", Text = "🃏 Draw4", Func = executeDraw4Script},
+    {Name = "DruidButton", Text = "🌿 Druid", Func = executeDruidScript},
+    {Name = "EgglerButton", Text = "🥚 Eggler", Func = executeEgglerScript},
+    {Name = "EludeButton", Text = "💨 Elude", Func = executeEludeScript},
+    {Name = "FanButton", Text = "🌪️ Fan", Func = executeFanScript},
+    {Name = "FireworkButton", Text = "🎆 Firework", Func = executeFireworkScript},
+    {Name = "FishButton", Text = "🐟 Fish", Func = executeFishScript},
+    {Name = "FlamarangButton", Text = "🔥 Flamarang", Func = executeFlamarangScript},
+    {Name = "FrostbiteButton", Text = "🥶 Frostbite", Func = executeFrostbiteScript},
+    {Name = "GlitchButton", Text = "👾 Glitch", Func = executeGlitchScript},
+    {Name = "GlovelButton", Text = "🧤 Glovel", Func = executeGlovelScript},
+    {Name = "GoofyButton", Text = "🤪 Goofy", Func = executeGoofyScript},
+    {Name = "HallowJackButton", Text = "🎃 Hallow Jack", Func = executeHallowJackScript},
+    {Name = "HammerButton", Text = "🔨 Hammer", Func = executeHammerScript},
+    {Name = "HarvesterButton", Text = "🌾 Harvester", Func = executeHarvesterScript},
+    {Name = "HexaButton", Text = "🔺 Hexa", Func = executeHexaScript},
+    {Name = "HitmanButton", Text = "🎯 Hitman", Func = executeHitmanScript},
+    {Name = "HunterButton", Text = "🔎 Hunter", Func = executeHunterScript},
+    {Name = "HybridButton", Text = "🧬 Hybrid", Func = executeHybridScript},
+    {Name = "IceSkateButton", Text = "⛸️ Ice skate", Func = executeIceSkateScript},
+    {Name = "JesterButton", Text = "🤡 Jester", Func = executeJesterScript},
+    {Name = "JerryButton", Text = "🐭 Jerry", Func = executeJerryScript},
+    {Name = "JetButton", Text = "🚀 Jet", Func = executeJetScript},
+    {Name = "JoustButton", Text = "🤺 Joust", Func = executeJoustScript},
+    {Name = "JupiterButton", Text = "🪐 Jupiter", Func = executeJupiterScript},
+    {Name = "KineticButton", Text = "💥 Kinetic", Func = executeKineticScript},
+    {Name = "KnockoffButton", Text = "🪓 Knockoff", Func = executeKnockoffScript},
+    {Name = "KrakenButton", Text = "🦑 Kraken", Func = executeKrakenScript},
+    {Name = "LagButton", Text = "📶 Lag", Func = executeLagScript},
+    {Name = "LampButton", Text = "💡 Lamp", Func = executeLampScript},
+    {Name = "LeashButton", Text = "🐕 Leash", Func = executeLeashScript},
+    {Name = "LinkButton", Text = "🔗 Link", Func = executeLinkScript},
+    {Name = "LureButton", Text = "🍬 Lure", Func = executeLureScript},
+    {Name = "MaterialiseButton", Text = "🧱 Materialise", Func = executeMaterialiseScript},
+    {Name = "MegarockButton", Text = "🪨 Megarock", Func = executeMegarockScript},
+    {Name = "MetaverseButton", Text = "🌐 Metaverse", Func = executeMetaverseScript},
+    {Name = "MittenButton", Text = "🧤 Mitten", Func = executeMittenScript},
+    {Name = "MoaiButton", Text = "🗿 Moai", Func = executeMoaiScript},
+    {Name = "MoonButton", Text = "🌕 Moon", Func = executeMoonScript},
+    {Name = "MortisButton", Text = "💀 Mortis", Func = executeMortisScript},
+    {Name = "MouseButton", Text = "🖱️ Mouse", Func = executeMouseScript},
+    {Name = "NecromancerButton", Text = "👻 Necromancer", Func = executeNecromancerScript},
+    {Name = "NullButton", Text = "🚫 Null", Func = executeNullScript},
+    {Name = "ObbyButton", Text = "🧗 Obby", Func = executeObbyScript},
+    {Name = "OrbitButton", Text = "🔄 Orbit", Func = executeOrbitScript},
+    {Name = "PaintButton", Text = "🎨 Paint", Func = executePaintScript},
+    {Name = "PanButton", Text = "🍳 Pan", Func = executePanScript},
+    {Name = "PhaseButton", Text = "👻 Phase", Func = executePhaseScript},
+    {Name = "PillowButton", Text = "☁️ Pillow", Func = executePillowScript},
+    {Name = "PlagueButton", Text = "🦠 Plague", Func = executePlagueScript},
+    {Name = "PlankButton", Text = "🪵 Plank", Func = executePlankScript},
+    {Name = "PlateButton", Text = "🍽️ Plate", Func = executePlateScript},
+    {Name = "PoltergeistButton", Text = "👻 Poltergeist", Func = executePoltergeistScript},
+    {Name = "PotatoButton", Text = "🥔 Potato", Func = executePotatoScript},
+    {Name = "PsychoButton", Text = "🔪 Psycho", Func = executePsychoScript},
+    {Name = "QuakeButton", Text = "🌍 Quake", Func = executeQuakeScript},
+    {Name = "RedactedButton", Text = "❌ [Redacted]", Func = executeRedactedScript},
+    {Name = "RageButton", Text = "😡 Rage", Func = executeRageScript},
+    {Name = "RattlebonesButton", Text = "🦴 Rattlebones", Func = executeRattlebonesScript},
+    {Name = "RecallButton", Text = "🔙 Recall", Func = executeRecallScript},
+    {Name = "ReflectButton", Text = "🔄 Reflect", Func = executeReflectScript},
+    {Name = "ReludeButton", Text = "🚪 Relude", Func = executeReludeScript},
+    {Name = "RetroButton", Text = "🕹️ Retro", Func = executeRetroScript},
+    {Name = "RhythmButton", Text = "🎶 Rhythm", Func = executeRhythmScript},
+    {Name = "RiftshotButton", Text = "🏹 Riftshot", Func = executeRiftshotScript},
+    {Name = "RNGButton", Text = "🎲 RNG", Func = executeRNGScript},
+    {Name = "RobButton", Text = "💰 Rob", Func = executeRobScript},
+    {Name = "RojoButton", Text = "🔴 Rojo", Func = executeRojoScript},
+    {Name = "RunButton", Text = "🏃 Run", Func = executeRunScript},
+    {Name = "SantaButton", Text = "🎅 Santa", Func = executeSantaScript},
+    {Name = "ScytheButton", Text = "🔪 Scythe", Func = executeScytheScript},
+    {Name = "ShardButton", Text = "💎 Shard", Func = executeShardScript},
+    {Name = "TheSchlobButton", Text = "🦠 The schlob", Func = executeTheSchlobScript},
+    {Name = "SillyButton", Text = "🤪 Silly", Func = executeSillyScript},
+    {Name = "SiphonButton", Text = "🧛 Siphon", Func = executeSiphonScript},
+    {Name = "SlasherButton", Text = "🔪 Slasher", Func = executeSlasherScript},
+    {Name = "SlappleButton", Text = "🍎 Slapple", Func = executeSlappleScript},
+    {Name = "SlenderButton", Text = "🕴️ Slender", Func = executeSlenderScript},
+    {Name = "SnowRollerButton", Text = "滚 Snow roller", Func = executeSnowRollerScript},
+    {Name = "SnowballButton", Text = " снежок Snowball", Func = executeSnowballScript},
+    {Name = "SparkyButton", Text = "✨ Sparky", Func = executeSparkyScript},
+    {Name = "SpoonfulButton", Text = "🥄 Spoonful", Func = executeSpoonfulScript},
+    {Name = "SpyButton", Text = "🕵️ Spy", Func = executeSpyScript},
+    {Name = "SuctionButton", Text = "🔌 Suction", Func = executeSuctionScript},
+    {Name = "SwashbucklerButton", Text = "🏴‍☠️ Swashbuckler", Func = executeSwashbucklerScript},
+    {Name = "SwordFighterButton", Text = "⚔️ Sword fighter", Func = executeSwordFighterScript},
+    {Name = "TankButton", Text = "🛡️ Tank", Func = executeTankScript},
+    {Name = "TinkererButton", Text = "⚙️ Tinkerer", Func = executeTinkererScript},
+    {Name = "TrapButton", Text = "🕸️ Trap", Func = executeTrapScript},
+    {Name = "TycoonButton", Text = "🏢 Tycoon", Func = executeTycoonScript},
+    {Name = "UntitledTagGloveButton", Text = "🏷️ Untitled tag glove", Func = executeUntitledTagGloveScript},
+    {Name = "VoodooButton", Text = "💉 Voodoo", Func = executeVoodooScript},
+    {Name = "WarpButton", Text = "🌀 Warp", Func = executeWarpScript},
+    {Name = "WaterButton", Text = "💧 Water", Func = executeWaterScript},
+    {Name = "WrenchButton", Text = "🔧 Wrench", Func = executeWrenchScript},
 }
 
--- Table to hold references to the tab buttons and content frames
-local TAB_BUTTONS = {}
-local CONTENT_FRAMES = {}
-local ACTIVE_TAB = "Main" -- Start with the Main tab open
+local ALL_UI_BUTTONS = {} -- Global reference for search
 
 ----------------------------------------------------------------------
--- 1. Setup the ScreenGui
+-- 1. Setup the ScreenGui and Toggle Button
 ----------------------------------------------------------------------
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "AdminPanelGui"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = PlayerGui
 
-----------------------------------------------------------------------
--- 2. Toggle Button (Small Re-open Box)
-----------------------------------------------------------------------
 local ToggleButton = Instance.new("TextButton")
 ToggleButton.Name = "ToggleReopenButton"
 ToggleButton.Size = UDim2.new(0, 48, 0, 48)
-ToggleButton.Position = UDim2.new(0.01, 0, 0.01, 0) -- Top-left corner
+ToggleButton.Position = UDim2.new(0.01, 0, 0.01, 0)
 ToggleButton.Text = "👑"
 ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ToggleButton.BackgroundColor3 = ACCENT_COLOR
@@ -1063,18 +1051,19 @@ ToggleButton.Font = Enum.Font.SourceSansBold
 ToggleButton.TextSize = 24
 ToggleButton.Parent = ScreenGui
 
--- Rounded Corners for Toggle Button
 local UICornerToggle = Instance.new("UICorner")
 UICornerToggle.CornerRadius = UDim.new(0, 10)
 UICornerToggle.Parent = ToggleButton
 
 ----------------------------------------------------------------------
--- 3. Main Window Frame (The Panel)
+-- 2. Main Window Frame (The Panel)
 ----------------------------------------------------------------------
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "AdminPanelWindow"
-MainFrame.Size = UDim2.new(0.6, 0, 0.6, 0) -- Slightly wider to accommodate tabs
-MainFrame.Position = UDim2.new(0.2, 0, 0.2, 0)
+MainFrame.Size = UDim2.new(0.3, 0, 0.6, 0) -- Adjusted size for single column
+MainFrame.Position = UDim2.new(0.5, -MainFrame.Size.X.Scale * 0.5 * 100, 0.5, -MainFrame.Size.Y.Scale * 0.5 * 100) -- Center Position (0.5, 0, 0.5, 0) doesn't work well with scale, so using manual offset based on scale/size
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5) -- Anchor point set to center for easy centering
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0) -- Centered position
 MainFrame.BackgroundColor3 = MAIN_COLOR
 MainFrame.BorderSizePixel = 0
 MainFrame.Active = true
@@ -1082,12 +1071,10 @@ MainFrame.Draggable = true
 MainFrame.Visible = false
 MainFrame.Parent = ScreenGui
 
--- Rounded Corners for Main Frame
 local UICornerMain = Instance.new("UICorner")
 UICornerMain.CornerRadius = UDim.new(0, 15)
 UICornerMain.Parent = MainFrame
 
--- Subtle border stroke for aesthetics
 local UIStroke = Instance.new("UIStroke")
 UIStroke.Color = ACCENT_COLOR
 UIStroke.Thickness = 2
@@ -1095,19 +1082,19 @@ UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UIStroke.Parent = MainFrame
 
 ----------------------------------------------------------------------
--- 4. Header (Title and Close Button)
+-- 3. Header (Title and Close Button)
 ----------------------------------------------------------------------
 local Header = Instance.new("Frame")
 Header.Name = "Header"
 Header.Size = UDim2.new(1, 0, 0.1, 0)
-Header.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
+Header.BackgroundColor3 = Color3.fromRGB(40, 40, 60) -- Darker header color
 Header.Parent = MainFrame
 
 local Title = Instance.new("TextLabel")
 Title.Name = "Title"
 Title.Size = UDim2.new(0.85, 0, 1, 0)
 Title.Position = UDim2.new(0.05, 0, 0, 0)
-Title.Text = "Fero’s Main Panel”
+Title.Text = "Fero’s main panel"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.BackgroundTransparency = 1
 Title.Font = Enum.Font.SourceSansBold
@@ -1118,249 +1105,194 @@ Title.Parent = Header
 -- Close Button (The "X" button)
 local CloseButton = Instance.new("TextButton")
 CloseButton.Name = "CloseButton"
-CloseButton.Size = UDim2.new(0.1, 0, 0.8, 0)
-CloseButton.Position = UDim2.new(0.88, 0, 0.1, 0)
-CloseButton.Text = "✕"
+CloseButton.Size = UDim2.new(0.1, 0, 1, 0)
+CloseButton.Position = UDim2.new(0.9, 0, 0, 0)
+CloseButton.Text = "❌"
 CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 CloseButton.BackgroundColor3 = CLOSE_COLOR
 CloseButton.Font = Enum.Font.SourceSansBold
-CloseButton.TextSize = 20
+CloseButton.TextSize = 24
+CloseButton.BorderSizePixel = 0
 CloseButton.Parent = Header
 
--- Rounded Corners for Close Button
 local UICornerClose = Instance.new("UICorner")
 UICornerClose.CornerRadius = UDim.new(0, 5)
 UICornerClose.Parent = CloseButton
 
 ----------------------------------------------------------------------
--- 5. Tab Layout: Left Sidebar
-----------------------------------------------------------------------
-
-local Sidebar = Instance.new("Frame")
-Sidebar.Name = "Sidebar"
-Sidebar.Size = UDim2.new(0.25, 0, 0.9, 0) -- 25% width
-Sidebar.Position = UDim2.new(0, 0, 0.1, 0) -- Below the header
-Sidebar.BackgroundColor3 = Color3.fromRGB(35, 35, 50) -- Slightly different background
-Sidebar.Parent = MainFrame
-
-local TabListLayout = Instance.new("UIListLayout")
-TabListLayout.Padding = UDim.new(0, 5)
-TabListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-TabListLayout.FillDirection = Enum.FillDirection.Vertical
-TabListLayout.Parent = Sidebar
-
-local SidebarPadding = Instance.new("UIPadding")
-SidebarPadding.PaddingTop = UDim.new(0, 10)
-SidebarPadding.PaddingBottom = UDim.new(0, 10)
-SidebarPadding.PaddingLeft = UDim.new(0, 5)
-SidebarPadding.PaddingRight = UDim.new(0, 5)
-SidebarPadding.Parent = Sidebar
-
-----------------------------------------------------------------------
--- 6. Content Area: Right Section
+-- 4. Content Area (Combines PanelLayout and ContentArea)
 ----------------------------------------------------------------------
 local ContentArea = Instance.new("Frame")
 ContentArea.Name = "ContentArea"
-ContentArea.Size = UDim2.new(0.75, 0, 0.9, 0) -- 75% width
-ContentArea.Position = UDim2.new(0.25, 0, 0.1, 0) -- Next to the sidebar
-ContentArea.BackgroundTransparency = 1
+ContentArea.Size = UDim2.new(1, 0, 0.9, 0)
+ContentArea.Position = UDim2.new(0, 0, 0.1, 0)
+ContentArea.BackgroundColor3 = MAIN_COLOR
+ContentArea.BorderSizePixel = 0
 ContentArea.Parent = MainFrame
 
+----------------------------------------------------------------------
+-- 5. Search Bar (Inside Content Area)
+----------------------------------------------------------------------
+local SearchBar = Instance.new("TextBox")
+SearchBar.Name = "SearchBar"
+SearchBar.Size = UDim2.new(0.9, 0, 0.08, 0)
+SearchBar.Position = UDim2.new(0.05, 0, 0.02, 0)
+SearchBar.PlaceholderText = "🔎 Search all options..."
+SearchBar.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)
+SearchBar.Text = ""
+SearchBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+SearchBar.BackgroundColor3 = SEARCH_COLOR
+SearchBar.Font = Enum.Font.SourceSans
+SearchBar.TextSize = 18
+SearchBar.TextXAlignment = Enum.TextXAlignment.Left
+SearchBar.TextYAlignment = Enum.TextYAlignment.Center
+SearchBar.ClearTextOnFocus = false
+SearchBar.Parent = ContentArea
+
+local UIPaddingSearch = Instance.new("UIPadding")
+UIPaddingSearch.PaddingLeft = UDim.new(0, 10)
+UIPaddingSearch.Parent = SearchBar
+
+local UICornerSearch = Instance.new("UICorner")
+UICornerSearch.CornerRadius = UDim.new(0, 8)
+UICornerSearch.Parent = SearchBar
 
 ----------------------------------------------------------------------
--- HELPER FUNCTIONS
+-- 6. Scrollable Content Frame
+----------------------------------------------------------------------
+local ContentFrame = Instance.new("ScrollingFrame")
+ContentFrame.Name = "ContentFrame"
+ContentFrame.Size = UDim2.new(1, 0, 0.88, 0)
+ContentFrame.Position = UDim2.new(0, 0, 0.12, 0) -- Adjusted position to sit below the search bar
+ContentFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+ContentFrame.BackgroundTransparency = 1
+ContentFrame.BorderSizePixel = 0
+ContentFrame.ScrollingDirection = Enum.ScrollingDirection.Y
+ContentFrame.ScrollBarThickness = 6
+ContentFrame.ScrollBarImageColor3 = ACCENT_COLOR
+ContentFrame.Parent = ContentArea
+
+local ContentListLayout = Instance.new("UIListLayout")
+ContentListLayout.Name = "ContentListLayout"
+ContentListLayout.FillDirection = Enum.FillDirection.Vertical
+ContentListLayout.Padding = UDim.new(0, 5)
+ContentListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+ContentListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+ContentListLayout.Parent = ContentFrame
+
+local UIPaddingContent = Instance.new("UIPadding")
+UIPaddingContent.PaddingTop = UDim.new(0, 5)
+UIPaddingContent.PaddingBottom = UDim.new(0, 5)
+UIPaddingContent.Parent = ContentFrame
+
+
+----------------------------------------------------------------------
+-- 7. Utility Functions
 ----------------------------------------------------------------------
 
--- Function to create a standard button
-local function createButton(name, text, onClickFunction, parentFrame)
-    local Button = Instance.new("TextButton")
-    Button.Name = name
-    Button.Size = UDim2.new(1, 0, 0, 40) -- Full width, 40px height
-    Button.Text = text -- Now guaranteed to be a string
-    Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Button.BackgroundColor3 = Color3.fromRGB(50, 50, 75)
-    Button.BorderSizePixel = 0
-    Button.Font = Enum.Font.SourceSansSemibold
-    Button.TextSize = 16
-    Button.Parent = parentFrame
-    
-    local Corner = Instance.new("UICorner")
-    Corner.CornerRadius = UDim.new(0, 8)
-    Corner.Parent = Button
-    
-    -- Connection
-    Button.MouseButton1Click:Connect(onClickFunction)
-    
+-- Function to create a button for a glove/script
+local function createButton(buttonConfig)
+    local button = Instance.new("TextButton")
+    button.Name = buttonConfig.Name
+    button.Size = UDim2.new(0.9, 0, 0, 50) -- 90% width, 50px height
+    button.Text = buttonConfig.Text
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.BackgroundColor3 = BUTTON_COLOR
+    button.BorderSizePixel = 0
+    button.Font = Enum.Font.SourceSans
+    button.TextSize = 18
+    button.TextXAlignment = Enum.TextXAlignment.Left
+    button.AutoButtonColor = false
+
+    local UIPaddingButton = Instance.new("UIPadding")
+    UIPaddingButton.PaddingLeft = UDim.new(0, 15)
+    UIPaddingButton.Parent = button
+
+    local UICornerButton = Instance.new("UICorner")
+    UICornerButton.CornerRadius = UDim.new(0, 5)
+    UICornerButton.Parent = button
+
+    -- Button Action
+    button.MouseButton1Click:Connect(function()
+        buttonConfig.Func() -- Execute the associated function
+    end)
+
     -- Hover effect
-    Button.MouseEnter:Connect(function()
-        Button.BackgroundColor3 = ACCENT_COLOR
+    button.MouseEnter:Connect(function()
+        local hoverTween = TweenService:Create(button, TWEEN_INFO, {BackgroundColor3 = HOVER_COLOR})
+        hoverTween:Play()
     end)
-    Button.MouseLeave:Connect(function()
-        Button.BackgroundColor3 = Color3.fromRGB(50, 50, 75)
+    button.MouseLeave:Connect(function()
+        local leaveTween = TweenService:Create(button, TWEEN_INFO, {BackgroundColor3 = BUTTON_COLOR})
+        leaveTween:Play()
     end)
-    
-    return Button
+
+    return button
 end
 
--- Function to force the ScrollingFrame to update its canvas size based on content
-local function updateCanvasSize(scrollingFrame, containerFrame, layout)
-    -- Wait until the layout is calculated
-    layout:GetPropertyChangedSignal("AbsoluteContentSize"):Wait()
-    
-    -- 30 is the vertical padding (15 top + 15 bottom)
-    local contentHeight = layout.AbsoluteContentSize.Y + 30 
-    
-    -- Resize the ButtonContainer frame vertically
-    containerFrame.Size = UDim2.new(1, 0, 0, contentHeight)
-
-    -- Set CanvasSize to match the container's final size
-    scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, contentHeight)
-    scrollingFrame.CanvasPosition = Vector2.new(0, 0) -- Reset scroll to top
-end
-
--- Function to handle tab switching
-local function switchTab(tabName)
-    if ACTIVE_TAB == tabName and MainFrame.Visible then return end
-
-    -- Deactivate all content frames
-    for _, frame in pairs(CONTENT_FRAMES) do
-        frame.Visible = false
-    end
-
-    -- Deactivate all tab buttons (visual change)
-    for name, button in pairs(TAB_BUTTONS) do
-        button.BackgroundColor3 = TAB_INACTIVE_COLOR
-        button.TextStrokeTransparency = 1
-    end
-
-    -- Activate the selected content frame and button
-    CONTENT_FRAMES[tabName].Visible = true
-    TAB_BUTTONS[tabName].BackgroundColor3 = TAB_ACTIVE_COLOR
-    TAB_BUTTONS[tabName].TextStrokeTransparency = 0.8
-    ACTIVE_TAB = tabName
-    
-    -- Force a CanvasSize update and reset scroll for the newly active tab
-    local tabContainer = CONTENT_FRAMES[tabName]:FindFirstChild("ButtonContainer")
-    local tabScrollingFrame = CONTENT_FRAMES[tabName]
-    local tabLayout = tabContainer:FindFirstChildOfClass("UIListLayout")
-    
-    if tabLayout and tabContainer and tabScrollingFrame then
-        task.spawn(updateCanvasSize, tabScrollingFrame, tabContainer, tabLayout)
+-- Function to build the UI (simplified)
+local function buildUI()
+    -- Create ALL buttons and parent them directly to the main ContentFrame
+    for _, config in ipairs(ALL_BUTTONS_CONFIG) do
+        local button = createButton(config)
+        button.Parent = ContentFrame
+        table.insert(ALL_UI_BUTTONS, button)
     end
 end
 
--- Function to create a tab button
-local function createTabButton(tabName, displayText)
-    local TabButton = Instance.new("TextButton")
-    TabButton.Name = tabName .. "Tab"
-    TabButton.Size = UDim2.new(1, 0, 0, 45)
-    TabButton.Text = displayText
-    TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TabButton.BackgroundColor3 = TAB_INACTIVE_COLOR
-    TabButton.BorderSizePixel = 0
-    TabButton.Font = Enum.Font.SourceSansSemibold
-    TabButton.TextSize = 18
-    TabButton.Parent = Sidebar
+-- Function to perform the search and update the content frame
+local function updateSearch(searchText)
+    local query = searchText:lower():gsub("[^%a%d%s]", ""):gsub("%s+", "") -- Clean and normalize search text
     
-    local UICornerTab = Instance.new("UICorner")
-    UICornerTab.CornerRadius = UDim.new(0, 8)
-    UICornerTab.Parent = TabButton
+    -- The search is active if the query is not empty
+    IS_SEARCHING = (query ~= "")
 
-    TabButton.MouseButton1Click:Connect(function()
-        switchTab(tabName)
-    end)
-    
-    TAB_BUTTONS[tabName] = TabButton
-end
-
--- Function to create the scrolling content for a tab
-local function createTabContent(tabName, buttonConfig)
-    -- Scrolling Frame
-    local ScrollingContent = Instance.new("ScrollingFrame")
-    ScrollingContent.Name = tabName .. "ScrollingContent"
-    ScrollingContent.Size = UDim2.new(1, 0, 1, 0)
-    ScrollingContent.BackgroundTransparency = 1
-    ScrollingContent.Parent = ContentArea
-    ScrollingContent.ScrollingDirection = Enum.ScrollingDirection.Y
-    ScrollingContent.CanvasSize = UDim2.new(0, 0, 0, 0)
-    ScrollingContent.Active = true
-    ScrollingContent.ScrollBarThickness = 17
-    ScrollingContent.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
-    ScrollingContent.Visible = false -- Start invisible
-
-    -- Button Container
-    local ButtonContainer = Instance.new("Frame")
-    ButtonContainer.Name = "ButtonContainer"
-    ButtonContainer.Size = UDim2.new(1, 0, 0, 0) -- Auto-resized
-    ButtonContainer.BackgroundTransparency = 1
-    ButtonContainer.Parent = ScrollingContent
-
-    -- Layout
-    local UIListLayout = Instance.new("UIListLayout")
-    UIListLayout.Padding = UDim.new(0, 10)
-    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
-    UIListLayout.FillDirection = Enum.FillDirection.Vertical
-    UIListLayout.Parent = ButtonContainer
-
-    -- Padding
-    local UIPadding = Instance.new("UIPadding")
-    UIPadding.PaddingTop = UDim.new(0, 15)
-    UIPadding.PaddingBottom = UDim.new(0, 15)
-    UIPadding.PaddingLeft = UDim.new(0, 15)
-    UIPadding.PaddingRight = UDim.new(0, 15)
-    UIPadding.Parent = ButtonContainer
-
-    -- Create buttons inside the container
-    for _, config in ipairs(buttonConfig) do
-        -- config.Text and config.Func are now guaranteed due to the fix
-        createButton(config.Name, config.Text, config.Func, ButtonContainer)
+    if IS_SEARCHING then
+        for _, button in pairs(ALL_UI_BUTTONS) do
+            local buttonText = button.Text:lower():gsub("[^%a%d%s]", ""):gsub("%s+", "")
+            
+            -- Check if the button text contains the search query
+            if buttonText:find(query, 1, true) then
+                button.Visible = true
+            else
+                button.Visible = false
+            end
+        end
+    else
+        -- If search is empty, show all buttons
+        for _, button in pairs(ALL_UI_BUTTONS) do
+            button.Visible = true
+        end
     end
 
-    -- Store reference
-    CONTENT_FRAMES[tabName] = ScrollingContent
-    
-    -- Initial Canvas Size calculation (must run in a separate thread)
-    -- Note: This initial run might not be perfect since the frame is invisible,
-    -- but it ensures layout properties exist for the main switchTab call.
-    task.spawn(updateCanvasSize, ScrollingContent, ButtonContainer, UIListLayout)
+    -- Force a layout refresh (trick to update CanvasSize immediately)
+    ContentListLayout.Parent = nil
+    ContentListLayout.Parent = ContentFrame
 end
 
 
 ----------------------------------------------------------------------
--- 7. GUI INITIALIZATION (Create Tabs and Content)
+-- 8. Connect Events
 ----------------------------------------------------------------------
 
--- 1. Create Tab Buttons
-createTabButton("Main", "Main Scripts")
-createTabButton("Gloves A-G", "Gloves (A-G)")
-createTabButton("Gloves H-R", "Gloves (H-R)")
-createTabButton("Gloves S-Z", "Gloves (S-Z)")
-
--- 2. Create Tab Content
-createTabContent("Main", ALL_BUTTONS_CONFIG["Main"])
-createTabContent("Gloves A-G", ALL_BUTTONS_CONFIG["Gloves A-G"])
-createTabContent("Gloves H-R", ALL_BUTTONS_CONFIG["Gloves H-R"])
-createTabContent("Gloves S-Z", ALL_BUTTONS_CONFIG["Gloves S-Z"])
-
--- 3. Set the initial active tab (will ensure visibility and scroll reset)
-switchTab(ACTIVE_TAB)
-
-
-----------------------------------------------------------------------
--- 8. Event Connections
-----------------------------------------------------------------------
-
--- Open Panel
-ToggleButton.MouseButton1Click:Connect(function()
-    MainFrame.Visible = true
-    ToggleButton.Visible = false
-    -- When opening, ensure the last active tab is displayed and scroll is set to top
-    switchTab(ACTIVE_TAB)
-end)
-
--- Close Panel
+-- Close Button
 CloseButton.MouseButton1Click:Connect(function()
     MainFrame.Visible = false
-    ToggleButton.Visible = true
 end)
+
+-- Toggle Button
+ToggleButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = not MainFrame.Visible
+end)
+
+-- Search Bar Text Change
+SearchBar.Changed:Connect(function(property)
+    if property == "Text" then
+        updateSearch(SearchBar.Text)
+    end
+end)
+
+-- Initial UI Setup
+buildUI()
+-- Run an initial search to ensure all buttons are displayed correctly when the panel opens
+updateSearch("")
