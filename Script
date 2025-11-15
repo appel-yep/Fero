@@ -21,6 +21,13 @@ loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\
     end
 end
 
+local function executeLoadstringScript()
+    local target = Player.Character -- The local player's character
+    if target then
+loadstring(game:HttpGet('https://gist.githubusercontent.com/zusqs/af1afec904c24633129bb7defa6513f9/raw/4ededd2380d1734d560b72e6c55803415f4f4146/loadstring%2520maker'))()
+    end
+end
+
 local function executeAdminScript()
     local target = Player.Character
     if target then
@@ -31,7 +38,7 @@ end
 local function executeAlchemistScript()
     local target = Player.Character
     if target then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Alchemist-/main/Alchemist"))()
+-- script will go here later on
     end
 end
 
@@ -59,7 +66,7 @@ end
 local function executeBindScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Dusty1234567890/Bind-G/refs/heads/main/Bind'))()
     end
 end
 
@@ -73,7 +80,7 @@ end
 local function executeBobScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Bobfarmupd/main/Bobfarm"))()
     end
 end
 
@@ -150,7 +157,7 @@ end
 local function executeClockScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet'https://raw.githubusercontent.com/Dusty1234567890/NewGloves/refs/heads/main/Clock')()
     end
 end
 
@@ -164,7 +171,7 @@ end
 local function executeCounterScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Elude-and-counter2-GASTER-HUB/main/Elude%20and%20COUNTER%20GASTER%20HUB"))()
     end
 end
 
@@ -241,7 +248,7 @@ end
 local function executeEludeScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Elude-and-counter2-GASTER-HUB/main/Elude%20and%20COUNTER%20GASTER%20HUB"))()
     end
 end
 
@@ -318,7 +325,7 @@ end
 local function executeHarvesterScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet('https://raw.githubusercontent.com/KietVN02202/KietVN02202/refs/heads/main/AutoGetHarvesterGlove.lua'))()
     end
 end
 
@@ -584,7 +591,7 @@ end
 local function executePoltergeistScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet'https://raw.githubusercontent.com/Dusty1234567890/Halloween/refs/heads/main/Poltergeist')()
     end
 end
 
@@ -612,7 +619,7 @@ end
 local function executeRedactedScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Dusty1234567890/TestMain/main/SLAPBATTLESGUI5")))()
     end
 end
 
@@ -633,7 +640,7 @@ end
 local function executeRecallScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Dusty1234567890/TestMain/main/SLAPBATTLESGUI5")))()
     end
 end
 
@@ -665,6 +672,13 @@ local function executeRhythmScript()
     end
 end
 
+local function executeRiftshotScript()
+    local target = Player.Character
+    if target then
+loadstring(game:HttpGet("https://pastefy.app/Q8kCqS8V/raw"))()
+    end
+end
+
 local function executeRNGScript()
     local target = Player.Character
     if target then
@@ -675,7 +689,7 @@ end
 local function executeRobScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Rob/main/Rob"))()
     end
 end
 
@@ -689,7 +703,7 @@ end
 local function executeRunScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Dusty1234567890/TestMain/main/SLAPBATTLESGUI5")))()
     end
 end
 
@@ -794,7 +808,7 @@ end
 local function executeSuctionScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KietVN02202/KietVN02202/refs/heads/main/autoGetNewGlove.lua"))()
     end
 end
 
@@ -829,7 +843,7 @@ end
 local function executeTrapScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dusty1234567890/Bobfarmupd/main/Bobfarm"))()
     end
 end
 
@@ -881,6 +895,7 @@ local ALL_BUTTONS_CONFIG = {
     -- TAB 1: Main Scripts
     ["Main"] = {
         {Name = "FlyButton", Text = "✈️ Fly ", Func = executeFlyScript},
+        {Name = "LoadstringButton", Text = "Loadstring maker ", Func = executeLoadstringScript},
         -- Add other main scripts here later
     },
     
@@ -982,6 +997,7 @@ local ALL_BUTTONS_CONFIG = {
         {Name = "ReludeButton", Text = "🚪 Relude", Func = executeReludeScript},
         {Name = "RetroButton", Text = "🕹️ Retro", Func = executeRetroScript},
         {Name = "RhythmButton", Text = "🎶 Rhythm", Func = executeRhythmScript},
+        {Name = "RiftshotButton", Text = "🏹 Riftshot", Func = executeRiftshotScript},
         {Name = "RNGButton", Text = "🎲 RNG", Func = executeRNGScript},
         {Name = "RobButton", Text = "💰 Rob", Func = executeRobScript},
         {Name = "RojoButton", Text = "🔴 Rojo", Func = executeRojoScript},
@@ -1091,7 +1107,7 @@ local Title = Instance.new("TextLabel")
 Title.Name = "Title"
 Title.Size = UDim2.new(0.85, 0, 1, 0)
 Title.Position = UDim2.new(0.05, 0, 0, 0)
-Title.Text = "Fero’s Main Panel - credits to Appel"
+Title.Text = "Fero’s Main Panel”
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.BackgroundTransparency = 1
 Title.Font = Enum.Font.SourceSansBold
