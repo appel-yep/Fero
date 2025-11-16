@@ -1,4 +1,5 @@
--- Script for me to edit
+----------------------------------------------------------------------
+-- 1. CONFIGURATION AND COLOURS
 ----------------------------------------------------------------------
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
@@ -9,9 +10,6 @@ local TWEEN_INFO = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirectio
 
 local IS_SEARCHING = false -- Global state flag for search mode
 
-----------------------------------------------------------------------
--- CONFIGURATION AND STYLES
-----------------------------------------------------------------------
 local MAIN_COLOR = Color3.fromRGB(30, 30, 45)  
 local ACCENT_COLOR = Color3.fromRGB(45, 125, 255)
 local CLOSE_COLOR = Color3.fromRGB(200, 50, 50)
@@ -20,8 +18,9 @@ local SEARCH_COLOR = Color3.fromRGB(55, 55, 80)
 local HOVER_COLOR = Color3.fromRGB(70, 70, 100)
 
 ----------------------------------------------------------------------
--- GLOVE SCRIPTS
+-- 2. BUTTON SCRIPTS
 ----------------------------------------------------------------------
+
 local function executeFlyScript()
     local target = Player.Character -- The local player's character
     if target then
@@ -46,6 +45,7 @@ end
 local function executeAlchemistScript()
     local target = Player.Character
     if target then
+ShowPopup("Server with 10 alts required")
 -- script will go here later on
     end
 end
@@ -116,7 +116,7 @@ end
 local function executeBoxerScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -200,7 +200,7 @@ end
 local function executeDebugScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet('https://raw.githubusercontent.com/KietVN02202/KietVN02202/refs/heads/main/AutoDebug.lua'))()
     end
 end
 
@@ -249,7 +249,8 @@ end
 local function executeEgglerScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+ShowPopup("Easter event exclusive")
+loadstring(game:HttpGet('https://pastefy.app/faY5eqRD/raw'))()
     end
 end
 
@@ -263,7 +264,7 @@ end
 local function executeFanScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -291,14 +292,14 @@ end
 local function executeFrostbiteScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
 local function executeGlitchScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -326,7 +327,7 @@ end
 local function executeHammerScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -361,7 +362,7 @@ end
 local function executeHybridScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -389,7 +390,7 @@ end
 local function executeJetScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -431,14 +432,14 @@ end
 local function executeLagScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet('https://raw.githubusercontent.com/KietVN02202/KietVN02202/refs/heads/main/AutoDebug.lua'))()
     end
 end
 
 local function executeLampScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -564,7 +565,7 @@ end
 local function executePhaseScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -592,7 +593,7 @@ end
 local function executePlateScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -753,7 +754,7 @@ end
 local function executeSiphonScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -830,7 +831,7 @@ end
 local function executeSwordFighterScript()
     local target = Player.Character
     if target then
-        -- script will go here later on
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
     end
 end
 
@@ -897,9 +898,8 @@ local function executeWrenchScript()
     end
 end
 
-
 ----------------------------------------------------------------------
--- Dictionary of ALL buttons
+-- 3. BUTTON DICTIONARY 
 ----------------------------------------------------------------------
 local ALL_BUTTONS_CONFIG = {
     {Name = "FlyButton", Text = "✈️ Fly ", Func = executeFlyScript},
@@ -1029,10 +1029,10 @@ local ALL_BUTTONS_CONFIG = {
     {Name = "WrenchButton", Text = "🔧 Wrench", Func = executeWrenchScript},
 }
 
-local ALL_UI_BUTTONS = {} -- Global reference for search
+local ALL_UI_BUTTONS = {} 
 
 ----------------------------------------------------------------------
--- 1. Setup the ScreenGui and Toggle Button
+-- 4. GUI + TOGGLE
 ----------------------------------------------------------------------
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "AdminPanelGui"
@@ -1056,7 +1056,7 @@ UICornerToggle.CornerRadius = UDim.new(0, 10)
 UICornerToggle.Parent = ToggleButton
 
 ----------------------------------------------------------------------
--- 2. Main Window Frame (The Panel)
+-- 5. PANEL
 ----------------------------------------------------------------------
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "AdminPanelWindow"
@@ -1082,7 +1082,7 @@ UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UIStroke.Parent = MainFrame
 
 ----------------------------------------------------------------------
--- 3. Header (Title and Close Button)
+-- 6. TITLE + CLOSE BUTTON
 ----------------------------------------------------------------------
 local Header = Instance.new("Frame")
 Header.Name = "Header"
@@ -1120,7 +1120,7 @@ UICornerClose.CornerRadius = UDim.new(0, 5)
 UICornerClose.Parent = CloseButton
 
 ----------------------------------------------------------------------
--- 4. Content Area (Combines PanelLayout and ContentArea)
+-- 7. CONTENT AREA
 ----------------------------------------------------------------------
 local ContentArea = Instance.new("Frame")
 ContentArea.Name = "ContentArea"
@@ -1131,7 +1131,7 @@ ContentArea.BorderSizePixel = 0
 ContentArea.Parent = MainFrame
 
 ----------------------------------------------------------------------
--- 5. Search Bar (Inside Content Area)
+-- 8. SEARCH BAR
 ----------------------------------------------------------------------
 local SearchBar = Instance.new("TextBox")
 SearchBar.Name = "SearchBar"
@@ -1158,12 +1158,12 @@ UICornerSearch.CornerRadius = UDim.new(0, 8)
 UICornerSearch.Parent = SearchBar
 
 ----------------------------------------------------------------------
--- 6. Scrollable Content Frame
+-- 9. SCROLLING
 ----------------------------------------------------------------------
 local ContentFrame = Instance.new("ScrollingFrame")
 ContentFrame.Name = "ContentFrame"
 ContentFrame.Size = UDim2.new(1, 0, 0.88, 0)
-ContentFrame.Position = UDim2.new(0, 0, 0.12, 0) -- Adjusted position to sit below the search bar
+ContentFrame.Position = UDim2.new(0, 0, 0.12, 0)
 ContentFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 ContentFrame.BackgroundTransparency = 1
 ContentFrame.BorderSizePixel = 0
@@ -1187,10 +1187,9 @@ UIPaddingContent.Parent = ContentFrame
 
 
 ----------------------------------------------------------------------
--- 7. Utility Functions
+-- 10. BUTTON SETUP
 ----------------------------------------------------------------------
 
--- Function to create a button for a glove/script
 local function createButton(buttonConfig)
     local button = Instance.new("TextButton")
     button.Name = buttonConfig.Name
@@ -1214,7 +1213,7 @@ local function createButton(buttonConfig)
 
     -- Button Action
     button.MouseButton1Click:Connect(function()
-        buttonConfig.Func() -- Execute the associated function
+        buttonConfig.Func()
     end)
 
     -- Hover effect
@@ -1230,7 +1229,6 @@ local function createButton(buttonConfig)
     return button
 end
 
--- Function to build the UI (simplified)
 local function buildUI()
     -- Create ALL buttons and parent them directly to the main ContentFrame
     for _, config in ipairs(ALL_BUTTONS_CONFIG) do
@@ -1265,14 +1263,14 @@ local function updateSearch(searchText)
         end
     end
 
-    -- Force a layout refresh (trick to update CanvasSize immediately)
+    -- Force a layout refresh
     ContentListLayout.Parent = nil
     ContentListLayout.Parent = ContentFrame
 end
 
 
 ----------------------------------------------------------------------
--- 8. Connect Events
+-- 11. CONNECT EVENTS
 ----------------------------------------------------------------------
 
 -- Close Button
@@ -1294,5 +1292,50 @@ end)
 
 -- Initial UI Setup
 buildUI()
--- Run an initial search to ensure all buttons are displayed correctly when the panel opens
 updateSearch("")
+
+----------------------------------------------------------------------
+-- 12. POPUP NOTIFICATION
+----------------------------------------------------------------------
+function ShowPopup(message)
+    -- create container
+    local popup = Instance.new("Frame")
+    popup.Size = UDim2.new(0, 260, 0, 50)
+    popup.Position = UDim2.new(1, 20, 1, -30)
+    popup.AnchorPoint = Vector2.new(1, 1)
+    popup.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
+    popup.BorderSizePixel = 0
+    popup.Parent = ScreenGui
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 10)
+    corner.Parent = popup
+
+    local text = Instance.new("TextLabel")
+    text.Size = UDim2.new(1, -20, 1, 0)
+    text.Position = UDim2.new(0, 10, 0, 0)
+    text.BackgroundTransparency = 1
+    text.TextColor3 = Color3.fromRGB(255, 255, 255)
+    text.Font = Enum.Font.SourceSansBold
+    text.TextSize = 18
+    text.TextXAlignment = Enum.TextXAlignment.Left
+    text.Text = message or ""
+    text.Parent = popup
+
+    -- slide-in tween
+    TweenService:Create(popup, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        Position = UDim2.new(1, -20, 1, -30)
+    }):Play()
+
+    -- delay then fade + destroy
+    task.delay(3, function()
+        TweenService:Create(popup, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+        TweenService:Create(text, TweenInfo.new(0.5), {TextTransparency = 1}):Play()
+        task.wait(0.5)
+        if popup and popup.Parent then
+            popup:Destroy()
+        end
+    end)
+end
+
+ShowPopup("✅ Fero has loaded successfully")
